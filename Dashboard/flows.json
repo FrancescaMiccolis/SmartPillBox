@@ -1,0 +1,2108 @@
+[
+    {
+        "id": "5633fec1.6df9e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "eca69072df2ba144",
+        "type": "ui_form",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "label": "",
+        "group": "a2d36e839b27d700",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "options": [
+            {
+                "label": "Name:",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Surname:",
+                "value": "surname",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "CF:",
+                "value": "CF",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Prescribed drug:",
+                "value": "drug",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Posology (mg):",
+                "value": "dose",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Intake per day:",
+                "value": "times",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Hour:",
+                "value": "hour",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Tolerance (min):",
+                "value": "tol",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Start date:",
+                "value": "start",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End date (blank if life-long therapy):",
+                "value": "end",
+                "type": "date",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "surname": "",
+            "CF": "",
+            "drug": "",
+            "dose": "",
+            "times": "",
+            "hour": "",
+            "tol": "",
+            "start": "",
+            "end": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 70,
+        "y": 60,
+        "wires": [
+            [
+                "d6c707f8a705a904"
+            ]
+        ]
+    },
+    {
+        "id": "c619b72b98442df0",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown patient - adherence",
+        "label": "",
+        "tooltip": "",
+        "place": "Select patient",
+        "group": "31493a6f635ab763",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "adherence",
+        "topicType": "str",
+        "className": "",
+        "x": 850,
+        "y": 800,
+        "wires": [
+            [
+                "114a62f435c241b3",
+                "d180769f8856edda"
+            ]
+        ]
+    },
+    {
+        "id": "80b249daca1086ee",
+        "type": "ui_gauge",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "group": "31493a6f635ab763",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Maximum streak",
+        "label": "% streak",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "className": "",
+        "x": 4140,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "691a94c6a7d85c6d",
+        "type": "mqtt out",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "Dashboard/NewPatient",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e204e092efa3fbc0",
+        "x": 1390,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "555ded0653ba8827",
+        "type": "ui_chart",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "group": "31493a6f635ab763",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Patient behaviour to date",
+        "chartType": "pie",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Select patient name to obtain data ",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "5",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#2ca02c",
+            "#f2e526",
+            "#ff7f0e",
+            "#d42728",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 4170,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75cc4ef561afb910",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown patient - add new",
+        "label": "",
+        "tooltip": "",
+        "place": "Select patient",
+        "group": "9b8e9a4a4307a70d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "addnew",
+        "topicType": "str",
+        "className": "",
+        "x": 860,
+        "y": 680,
+        "wires": [
+            [
+                "e02c648e8f95e9e3",
+                "114a62f435c241b3"
+            ]
+        ]
+    },
+    {
+        "id": "c08f2e0e27e40910",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown patient - update",
+        "label": "",
+        "tooltip": "",
+        "place": "Select patient",
+        "group": "6f9ffda2271697ea",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "update",
+        "topicType": "str",
+        "className": "",
+        "x": 810,
+        "y": 420,
+        "wires": [
+            [
+                "5eb4a946f77fbced",
+                "114a62f435c241b3"
+            ]
+        ]
+    },
+    {
+        "id": "0d1df80b34cdea55",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown therapy - update",
+        "label": "",
+        "tooltip": "",
+        "place": "Select therapy to update",
+        "group": "6f9ffda2271697ea",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "update",
+        "topicType": "str",
+        "className": "",
+        "x": 2500,
+        "y": 340,
+        "wires": [
+            [
+                "a0ac3295ac987397"
+            ]
+        ]
+    },
+    {
+        "id": "c750b1ed2d9637de",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown patient - delete",
+        "label": "",
+        "tooltip": "",
+        "place": "Select patient",
+        "group": "574ecbe92d50a480",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "delete",
+        "topicType": "str",
+        "className": "",
+        "x": 790,
+        "y": 480,
+        "wires": [
+            [
+                "f0fae258a03b5a60",
+                "114a62f435c241b3"
+            ]
+        ]
+    },
+    {
+        "id": "c961588024ce33c4",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown therapy - delete",
+        "label": "",
+        "tooltip": "",
+        "place": "Select therapy to remove",
+        "group": "574ecbe92d50a480",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "delete",
+        "topicType": "str",
+        "className": "",
+        "x": 2430,
+        "y": 500,
+        "wires": [
+            [
+                "4a21ef36449c2f1b",
+                "4e2510ac4b80ea71",
+                "79e69f732b957402"
+            ]
+        ]
+    },
+    {
+        "id": "79e69f732b957402",
+        "type": "ui_button",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "group": "574ecbe92d50a480",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Confirm",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "delete_therapy",
+        "payloadType": "global",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 2800,
+        "y": 520,
+        "wires": [
+            [
+                "affa99a1af0533d5"
+            ]
+        ]
+    },
+    {
+        "id": "4e2510ac4b80ea71",
+        "type": "ui_button",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "group": "574ecbe92d50a480",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Cancel",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "cancel",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 2790,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c89c48d75d265313",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown therapy - adherence",
+        "label": "",
+        "tooltip": "",
+        "place": "Select therapy",
+        "group": "31493a6f635ab763",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "adherence",
+        "topicType": "str",
+        "className": "",
+        "x": 2330,
+        "y": 680,
+        "wires": [
+            [
+                "2b3408639b77ca95"
+            ]
+        ]
+    },
+    {
+        "id": "0eb1085caca75ff4",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "options",
+                "pt": "msg",
+                "to": "payload[\"names\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 440,
+        "wires": [
+            [
+                "c619b72b98442df0",
+                "c08f2e0e27e40910",
+                "c750b1ed2d9637de",
+                "75cc4ef561afb910",
+                "730cb848e17ed0ca"
+            ]
+        ]
+    },
+    {
+        "id": "c9550178c92bbb50",
+        "type": "http request",
+        "z": "5633fec1.6df9e",
+        "name": "GET names-id json",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "0eb1085caca75ff4",
+                "578aaea821e7f620"
+            ]
+        ]
+    },
+    {
+        "id": "2ffb4f611649f9d6",
+        "type": "ui_ui_control",
+        "z": "5633fec1.6df9e",
+        "name": "@connection",
+        "events": "all",
+        "x": 70,
+        "y": 800,
+        "wires": [
+            [
+                "ef572807789de1e5",
+                "cf224a98eaa8da1a",
+                "638fbc5c765b59b4"
+            ]
+        ]
+    },
+    {
+        "id": "2d677b800b8f2d32",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1450,
+        "y": 500,
+        "wires": [
+            [
+                "9a32bf721bda2945"
+            ]
+        ]
+    },
+    {
+        "id": "e02c648e8f95e9e3",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "addnew",
+        "func": "var id = global.get(\"ID\");\nglobal.set(\"addnew_id\",id[msg.payload]);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "578aaea821e7f620",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "set global ID var",
+        "func": "global.set(\"ID\",msg.payload.id);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9a32bf721bda2945",
+        "type": "http request",
+        "z": "5633fec1.6df9e",
+        "name": "GET therapies json",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1640,
+        "y": 500,
+        "wires": [
+            [
+                "a0f9c437a84da635"
+            ]
+        ]
+    },
+    {
+        "id": "9de105bfbb9dd6e5",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "update",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "delete",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "adherence",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 2010,
+        "y": 500,
+        "wires": [
+            [
+                "0d1df80b34cdea55"
+            ],
+            [
+                "c961588024ce33c4"
+            ],
+            [
+                "c89c48d75d265313"
+            ]
+        ]
+    },
+    {
+        "id": "ccf2c70a40fb5db3",
+        "type": "ui_form",
+        "z": "5633fec1.6df9e",
+        "name": "update existing therapy",
+        "label": "",
+        "group": "6f9ffda2271697ea",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "options": [
+            {
+                "label": "Posology (mg):",
+                "value": "dose",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Intake per day:",
+                "value": "times",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Hour:",
+                "value": "hour",
+                "type": "time",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Tolerance (min):",
+                "value": "tol",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Start date:",
+                "value": "start",
+                "type": "date",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "End date:",
+                "value": "end",
+                "type": "date",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "dose": "",
+            "times": "",
+            "hour": "",
+            "tol": "",
+            "start": "",
+            "end": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 2970,
+        "y": 340,
+        "wires": [
+            [
+                "7100ebb7138df6ac"
+            ]
+        ]
+    },
+    {
+        "id": "f2f035ead4bb9e26",
+        "type": "ui_form",
+        "z": "5633fec1.6df9e",
+        "name": "add new therapy",
+        "label": "Insert therapy",
+        "group": "9b8e9a4a4307a70d",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "options": [
+            {
+                "label": "Prescribed drug:",
+                "value": "drug",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Posology (mg):",
+                "value": "dose",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Intake per day:",
+                "value": "times",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Hour:",
+                "value": "hour",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Tolerance (min):",
+                "value": "tol",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Start date:",
+                "value": "start",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End date (blank if life-long therapy):",
+                "value": "end",
+                "type": "date",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "drug": "",
+            "dose": "",
+            "times": "",
+            "hour": "",
+            "tol": "",
+            "start": "",
+            "end": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 1740,
+        "y": 200,
+        "wires": [
+            [
+                "cbd0890ffebfa2c3"
+            ]
+        ]
+    },
+    {
+        "id": "2715e58335eddf76",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "addnew",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "addnew",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1290,
+        "y": 500,
+        "wires": [
+            [
+                "f2f035ead4bb9e26"
+            ],
+            [
+                "2d677b800b8f2d32"
+            ]
+        ]
+    },
+    {
+        "id": "097acbf739feea57",
+        "type": "mqtt out",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "Dashboard/ManageTherapy/addnew",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e204e092efa3fbc0",
+        "x": 3090,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d6c707f8a705a904",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.start",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"DD/MM/YYYY\")",
+        "locale": "it-IT",
+        "output": "payload.start",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "64ad3d6e5ce104df"
+            ]
+        ]
+    },
+    {
+        "id": "64ad3d6e5ce104df",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.hour",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"HH:mm\")",
+        "locale": "it-IT",
+        "output": "payload.hour",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 520,
+        "y": 60,
+        "wires": [
+            [
+                "c1b8acc468a0bcae"
+            ]
+        ]
+    },
+    {
+        "id": "fc80dc43ac475bce",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.end",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"DD/MM/YYYY\")",
+        "locale": "it-IT",
+        "output": "payload.end",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 920,
+        "y": 100,
+        "wires": [
+            [
+                "e7f74c8c2ea43f49"
+            ]
+        ]
+    },
+    {
+        "id": "c1b8acc468a0bcae",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "payload.end",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 60,
+        "wires": [
+            [
+                "353fba5f537dd505"
+            ],
+            [
+                "fc80dc43ac475bce"
+            ]
+        ]
+    },
+    {
+        "id": "353fba5f537dd505",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "const date = msg.payload.start.split(\"mt\");\nvar start = date[1].replace('(', '');\nstart = start.replace(')', '');\nstart = start.replace('\"', '');\nstart = start.replace('\"', '');\nmsg.payload.start = start;\n\nconst time = msg.payload.hour.split(\"mt\");\nvar hour = time[1].replace('(', '');\nhour = hour.replace(')', '');\nhour = hour.replace('\"', '');\nhour = hour.replace('\"', '');\nmsg.payload.hour = hour;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 40,
+        "wires": [
+            [
+                "691a94c6a7d85c6d"
+            ]
+        ]
+    },
+    {
+        "id": "e7f74c8c2ea43f49",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "const datestart = msg.payload.start.split(\"mt\");\nvar start = datestart[1].replace('(', '');\nstart = start.replace(')', '');\nstart = start.replace('\"', '');\nstart = start.replace('\"', '');\nmsg.payload.start = start;\n\nconst enddate = msg.payload.end.split(\"mt\");\nvar end = enddate[1].replace('(', '');\nend = end.replace(')', '');\nend = end.replace('\"', '');\nend = end.replace('\"', '');\nmsg.payload.end = end;\n\nconst time = msg.payload.hour.split(\"mt\");\nvar hour = time[1].replace('(', '');\nhour = hour.replace(')', '');\nhour = hour.replace('\"', '');\nend = end.replace('\"', '');\nmsg.payload.hour = hour;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 100,
+        "wires": [
+            [
+                "691a94c6a7d85c6d"
+            ]
+        ]
+    },
+    {
+        "id": "cbd0890ffebfa2c3",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.start",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"DD/MM/YYYY\")",
+        "locale": "it-IT",
+        "output": "payload.start",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 1940,
+        "y": 200,
+        "wires": [
+            [
+                "bfb67ff4cc70ead2"
+            ]
+        ]
+    },
+    {
+        "id": "bfb67ff4cc70ead2",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.hour",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"HH:mm\")",
+        "locale": "it-IT",
+        "output": "payload.hour",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 2160,
+        "y": 200,
+        "wires": [
+            [
+                "bfa4ae3bbbd8cc90"
+            ]
+        ]
+    },
+    {
+        "id": "bfa4ae3bbbd8cc90",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "payload.end",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 2350,
+        "y": 200,
+        "wires": [
+            [
+                "b4f27b6ed3ac9a5c"
+            ],
+            [
+                "8e33f150305e2ec1"
+            ]
+        ]
+    },
+    {
+        "id": "b4f27b6ed3ac9a5c",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "const date = msg.payload.start.split(\"mt\");\nvar start = date[1].replace('(', '');\nstart = start.replace(')', '');\nstart = start.replace('\"', '');\nstart = start.replace('\"', '');\nmsg.payload.start = start;\n\nconst time = msg.payload.hour.split(\"mt\");\nvar hour = time[1].replace('(', '');\nhour = hour.replace(')', '');\nhour = hour.replace('\"', '');\nhour = hour.replace('\"', '');\nmsg.payload.hour = hour;\n\nvar id = global.get(\"addnew_id\");\nmsg.payload.id = id;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2600,
+        "y": 160,
+        "wires": [
+            [
+                "097acbf739feea57"
+            ]
+        ]
+    },
+    {
+        "id": "8e33f150305e2ec1",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.end",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"DD/MM/YYYY\")",
+        "locale": "it-IT",
+        "output": "payload.end",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 2640,
+        "y": 220,
+        "wires": [
+            [
+                "d2634f907b728f9b"
+            ]
+        ]
+    },
+    {
+        "id": "d2634f907b728f9b",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "const datestart = msg.payload.start.split(\"mt\");\nvar start = datestart[1].replace('(', '');\nstart = start.replace(')', '');\nstart = start.replace('\"', '');\nstart = start.replace('\"', '');\nmsg.payload.start = start;\n\nconst enddate = msg.payload.end.split(\"mt\");\nvar end = enddate[1].replace('(', '');\nend = end.replace(')', '');\nend = end.replace('\"', '');\nend = end.replace('\"', '');\nmsg.payload.end = end;\n\nconst time = msg.payload.hour.split(\"mt\");\nvar hour = time[1].replace('(', '');\nhour = hour.replace(')', '');\nhour = hour.replace('\"', '');\nhour = hour.replace('\"', '');\nmsg.payload.hour = hour;\n\nvar id = global.get(\"addnew_id\");\nmsg.payload.id = id;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2820,
+        "y": 220,
+        "wires": [
+            [
+                "097acbf739feea57"
+            ]
+        ]
+    },
+    {
+        "id": "4a21ef36449c2f1b",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "var id = global.get(\"delete_id\");\nvar todo = {};\ntodo.id = id;\ntodo.therapy = msg.payload;\n\nglobal.set(\"delete_therapy\",todo);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2800,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "affa99a1af0533d5",
+        "type": "mqtt out",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "Dashboard/ManageTherapy/delete",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e204e092efa3fbc0",
+        "x": 3060,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "72ec2fb0174d8828",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.start",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"DD/MM/YYYY\")",
+        "locale": "it-IT",
+        "output": "payload.start",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 3480,
+        "y": 360,
+        "wires": [
+            [
+                "b59e66481275de10"
+            ]
+        ]
+    },
+    {
+        "id": "c8038d1c1ff8819a",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.hour",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"HH:mm\")",
+        "locale": "it-IT",
+        "output": "payload.hour",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 3860,
+        "y": 360,
+        "wires": [
+            [
+                "3556088948e8893b"
+            ]
+        ]
+    },
+    {
+        "id": "3556088948e8893b",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "payload.end",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 4070,
+        "y": 320,
+        "wires": [
+            [
+                "4e4121502281d9a8"
+            ],
+            [
+                "938e3221de752077"
+            ]
+        ]
+    },
+    {
+        "id": "4e4121502281d9a8",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "if (msg.payload.start != null) {\nconst date = msg.payload.start.split(\"mt\");\nvar start = date[1].replace('(', '');\nstart = start.replace(')', '');\nstart = start.replace('\"', '');\nstart = start.replace('\"', '');\nmsg.payload.start = start;}\n\nif (msg.payload.hour != null) {\nconst time = msg.payload.hour.split(\"mt\");\nvar hour = time[1].replace('(', '');\nhour = hour.replace(')', '');\nhour = hour.replace('\"', '');\nhour = hour.replace('\"', '');\nmsg.payload.hour = hour;}\n\nvar id = global.get(\"update_id\");\nmsg.payload.id = id;\n\nmsg.payload.drug = msg.topic;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 4220,
+        "y": 300,
+        "wires": [
+            [
+                "8f8d4ed312c25699"
+            ]
+        ]
+    },
+    {
+        "id": "938e3221de752077",
+        "type": "moment",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "",
+        "input": "payload.end",
+        "inputType": "msg",
+        "inTz": "Europe/Rome",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "moment().format(\"DD/MM/YYYY\")",
+        "locale": "it-IT",
+        "output": "payload.end",
+        "outputType": "msg",
+        "outTz": "Europe/Rome",
+        "x": 4260,
+        "y": 360,
+        "wires": [
+            [
+                "63f562b92232d0ab"
+            ]
+        ]
+    },
+    {
+        "id": "63f562b92232d0ab",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "if (msg.payload.start != null) {\nconst datestart = msg.payload.start.split(\"mt\");\nvar start = datestart[1].replace('(', '');\nstart = start.replace(')', '');\nstart = start.replace('\"', '');\nstart = start.replace('\"', '');\nmsg.payload.start = start;}\n\nif (msg.payload.end != null) {\nconst enddate = msg.payload.end.split(\"mt\");\nvar end = enddate[1].replace('(', '');\nend = end.replace(')', '');\nend = end.replace('\"', '');\nend = end.replace('\"', '');\nmsg.payload.end = end;}\n\nif (msg.payload.hour != null) {\nconst time = msg.payload.hour.split(\"mt\");\nvar hour = time[1].replace('(', '');\nhour = hour.replace(')', '');\nhour = hour.replace('\"', '');\nhour = hour.replace('\"', '');\nmsg.payload.hour = hour;}\n\nvar id = global.get(\"update_id\");\nmsg.payload.id = id;\n\nmsg.payload.drug = msg.topic;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 4440,
+        "y": 360,
+        "wires": [
+            [
+                "8f8d4ed312c25699"
+            ]
+        ]
+    },
+    {
+        "id": "8f8d4ed312c25699",
+        "type": "mqtt out",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "Dashboard/ManageTherapy/update",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e204e092efa3fbc0",
+        "x": 4700,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a0ac3295ac987397",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2750,
+        "y": 340,
+        "wires": [
+            [
+                "ccf2c70a40fb5db3"
+            ]
+        ]
+    },
+    {
+        "id": "7100ebb7138df6ac",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "payload.start",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 3210,
+        "y": 340,
+        "wires": [
+            [
+                "b59e66481275de10"
+            ],
+            [
+                "72ec2fb0174d8828"
+            ]
+        ]
+    },
+    {
+        "id": "b59e66481275de10",
+        "type": "switch",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "property": "payload.hour",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 3670,
+        "y": 320,
+        "wires": [
+            [
+                "3556088948e8893b"
+            ],
+            [
+                "c8038d1c1ff8819a"
+            ]
+        ]
+    },
+    {
+        "id": "730cb848e17ed0ca",
+        "type": "ui_dropdown",
+        "z": "5633fec1.6df9e",
+        "name": "dropdown patient - delete",
+        "label": "",
+        "tooltip": "",
+        "place": "Select patient",
+        "group": "e13cda29873eccae",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "delete",
+        "topicType": "str",
+        "className": "",
+        "x": 810,
+        "y": 260,
+        "wires": [
+            [
+                "1b68f3ac96e68ca7",
+                "19f667b144d43698",
+                "33c1a5352eda70e0"
+            ]
+        ]
+    },
+    {
+        "id": "a0f9c437a84da635",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "options",
+                "pt": "msg",
+                "to": "payload[\"therapy\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1840,
+        "y": 500,
+        "wires": [
+            [
+                "9de105bfbb9dd6e5"
+            ]
+        ]
+    },
+    {
+        "id": "19f667b144d43698",
+        "type": "ui_button",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "group": "e13cda29873eccae",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Confirm",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "delete_patient",
+        "payloadType": "global",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1040,
+        "y": 300,
+        "wires": [
+            [
+                "227ce22702e642de"
+            ]
+        ]
+    },
+    {
+        "id": "1b68f3ac96e68ca7",
+        "type": "ui_button",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "group": "e13cda29873eccae",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Cancel",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "cancel",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1070,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "227ce22702e642de",
+        "type": "mqtt out",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "topic": "Dashboard/DeletePatient",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e204e092efa3fbc0",
+        "x": 1270,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "33c1a5352eda70e0",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "var id = global.get(\"ID\");\nvar todo = {};\ntodo.id = id[msg.payload];\n\nglobal.set(\"delete_patient\",todo);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f0fae258a03b5a60",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "delete",
+        "func": "var id = global.get(\"ID\");\nglobal.set(\"delete_id\",id[msg.payload]);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5eb4a946f77fbced",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "update",
+        "func": "var id = global.get(\"ID\");\nglobal.set(\"update_id\",id[msg.payload]);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "114a62f435c241b3",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "set url",
+        "func": "var id = global.get(\"ID\");\nvar url = global.get(\"url\");\nurl_get = url.concat(\"therapy?id=\")\nmsg.payload = url_get.concat(id[msg.payload]);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 500,
+        "wires": [
+            [
+                "2715e58335eddf76"
+            ]
+        ]
+    },
+    {
+        "id": "2b3408639b77ca95",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "set url",
+        "func": "var id = global.get(\"adherence_id\");\nvar url = global.get(\"url\");\ntherapy = \"&drug=\".concat(msg.payload)\nurl_get = url.concat(\"adherence?id=\")\nmsg.payload = url_get.concat(id);\nmsg.payload = msg.payload.concat(therapy)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2550,
+        "y": 680,
+        "wires": [
+            [
+                "d92a30463ac75ba8"
+            ]
+        ]
+    },
+    {
+        "id": "d180769f8856edda",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "adherence",
+        "func": "var id = global.get(\"ID\");\nglobal.set(\"adherence_id\",id[msg.payload]);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f5310c5f60c9ecf9",
+        "type": "http request",
+        "z": "5633fec1.6df9e",
+        "name": "GET ThingSpeak connection data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 2960,
+        "y": 680,
+        "wires": [
+            [
+                "0bbbb3ef37a6660c"
+            ]
+        ]
+    },
+    {
+        "id": "d92a30463ac75ba8",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2710,
+        "y": 680,
+        "wires": [
+            [
+                "f5310c5f60c9ecf9"
+            ]
+        ]
+    },
+    {
+        "id": "0bbbb3ef37a6660c",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "set url",
+        "func": "url = \"https://api.thingspeak.com/channels/\".concat(msg.payload.ch_ID);\nurl = url.concat(\"/fields/2/last.json?api_key=\");\nmsg.payload = url.concat(msg.payload.read_apikey);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3190,
+        "y": 680,
+        "wires": [
+            [
+                "eeab567b430d899f"
+            ]
+        ]
+    },
+    {
+        "id": "eeab567b430d899f",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3350,
+        "y": 680,
+        "wires": [
+            [
+                "5e27f75898f53fe1"
+            ]
+        ]
+    },
+    {
+        "id": "5e27f75898f53fe1",
+        "type": "http request",
+        "z": "5633fec1.6df9e",
+        "name": "GET ThingSpeak data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 3560,
+        "y": 680,
+        "wires": [
+            [
+                "edc296b8cbd80c86",
+                "ad0deab883c13e49"
+            ]
+        ]
+    },
+    {
+        "id": "edc296b8cbd80c86",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "func": "data = JSON.parse(msg.payload[\"field2\"]);\npiechart = [{\n    \"series\": [ \"index\"],\n    \"data\": [ [data.OK, data.timealert, data.dosealert, data.KO] ],\n    \"labels\": [ \"% OK\", \"% timealert\", \"% dosealert\", \"% KO\" ]\n}]\nmsg.payload = {\"piechart\": piechart, \"index\": data.streak};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "json",
+                "module": "json"
+            }
+        ],
+        "x": 3760,
+        "y": 680,
+        "wires": [
+            [
+                "987532defa1d17b2",
+                "e81dc8952cca2a83"
+            ]
+        ]
+    },
+    {
+        "id": "987532defa1d17b2",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.index",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3940,
+        "y": 640,
+        "wires": [
+            [
+                "80b249daca1086ee"
+            ]
+        ]
+    },
+    {
+        "id": "e81dc8952cca2a83",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.piechart",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3940,
+        "y": 720,
+        "wires": [
+            [
+                "555ded0653ba8827"
+            ]
+        ]
+    },
+    {
+        "id": "ef572807789de1e5",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3340,
+        "y": 960,
+        "wires": [
+            [
+                "80b249daca1086ee"
+            ]
+        ]
+    },
+    {
+        "id": "cf224a98eaa8da1a",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3340,
+        "y": 1000,
+        "wires": [
+            [
+                "555ded0653ba8827"
+            ]
+        ]
+    },
+    {
+        "id": "ad0deab883c13e49",
+        "type": "debug",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3800,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cff1eb2fa9ca60c8",
+        "type": "ui_ui_control",
+        "z": "5633fec1.6df9e",
+        "name": "@connection",
+        "events": "all",
+        "x": 2070,
+        "y": 340,
+        "wires": [
+            [
+                "be150f52d62fcb9f"
+            ]
+        ]
+    },
+    {
+        "id": "be150f52d62fcb9f",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2250,
+        "y": 340,
+        "wires": [
+            [
+                "0d1df80b34cdea55",
+                "c961588024ce33c4",
+                "c89c48d75d265313"
+            ]
+        ]
+    },
+    {
+        "id": "638fbc5c765b59b4",
+        "type": "function",
+        "z": "5633fec1.6df9e",
+        "name": "global ngrok url",
+        "func": "url = \"http://4b39-185-2-145-144.ngrok.io/\";\nglobal.set(\"url\",url);\nmsg.payload = url.concat(\"patients\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 700,
+        "wires": [
+            [
+                "c856798d4a2dbd27"
+            ]
+        ]
+    },
+    {
+        "id": "c856798d4a2dbd27",
+        "type": "change",
+        "z": "5633fec1.6df9e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "c9550178c92bbb50"
+            ]
+        ]
+    },
+    {
+        "id": "a2d36e839b27d700",
+        "type": "ui_group",
+        "name": "Add new patient",
+        "tab": "629939595e41a86a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "31493a6f635ab763",
+        "type": "ui_group",
+        "name": "Therapy Adherence",
+        "tab": "629939595e41a86a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e204e092efa3fbc0",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9b8e9a4a4307a70d",
+        "type": "ui_group",
+        "name": "Add new",
+        "tab": "5cbcc610187ba1dc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6f9ffda2271697ea",
+        "type": "ui_group",
+        "name": "Update existing",
+        "tab": "5cbcc610187ba1dc",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "574ecbe92d50a480",
+        "type": "ui_group",
+        "name": "Delete ",
+        "tab": "5cbcc610187ba1dc",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e13cda29873eccae",
+        "type": "ui_group",
+        "name": "Delete patient",
+        "tab": "629939595e41a86a",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "629939595e41a86a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5cbcc610187ba1dc",
+        "type": "ui_tab",
+        "name": "Manage therapies",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]

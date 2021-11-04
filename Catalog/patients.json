@@ -1,0 +1,44 @@
+{
+    "patients": [
+        {
+            "ID": "623366333922796372561",
+            "Name": "Mario",
+            "Surname": "Rossi",
+            "CF": "RSSMRA37A01L219H",
+            "Therapy": [
+                {
+                    "drug": "Coumadin",
+                    "dose": 200,
+                    "times": 1,
+                    "hour": "10:00",
+                    "tol": 20,
+                    "start": "12/10/2021",
+                    "end": "",
+                    "Thingspeak": {
+                        "ch_ID": "1540636",
+                        "write_apikey": "V8LZZQKUGJBG90ET",
+                        "read_apikey": "YK4ZVOP8Q86WEO41"
+                    }
+                },
+                {
+                    "drug": "Tachipirina",
+                    "dose": 500,
+                    "times": 2,
+                    "hour": [
+                        "10:00",
+                        "16:00"
+                    ],
+                    "tol": 30,
+                    "start": "27/10/2021",
+                    "end": "03/11/2021",
+                    "Thingspeak": {
+                        "ch_ID": "1557069",
+                        "write_apikey": "3514B86JP1I1NG61",
+                        "read_apikey": "L2EO4EZJU3PVMUSX"
+                    }
+                }
+            ],
+            "led_sensors": "led_sensors-1262454237573722002"
+        }
+    ]
+}

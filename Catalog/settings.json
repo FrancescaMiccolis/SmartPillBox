@@ -1,0 +1,15 @@
+{
+	"MQTT": {
+		"broker": "broker.hivemq.com",
+		"port": 1883
+	},
+	"REST": {
+		"server.socket_host": "127.0.0.1",
+		"server.socket_port": 80
+	},
+	"ThingSpeak": {
+		"apikey": "TBZG89YJ66AGEBP3",
+		"read": "https://api.thingspeak.com/channels",
+		"write": "https://api.thingspeak.com/update.json"
+	}
+}
